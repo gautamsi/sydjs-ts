@@ -14,12 +14,13 @@
             "type": "node",
             "request": "launch",
             "name": "Debug",
-            "program": "${workspaceRoot}/dist/server.js",
+            "program": "${workspaceRoot}/dist/keystone.js",
             "smartStep": true,
             "outFiles": [
                 "../dist/**/*.js"
             ],
-            "preLaunchTask": "npm: build",
+            //"sourceMaps": false,
+            //"preLaunchTask": "npm: build",
             "protocol": "inspector"
         }
     ]

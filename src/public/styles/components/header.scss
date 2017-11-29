@@ -1,0 +1,245 @@
+// Header
+// ------------------------------
+#header {
+	line-height: $navbar-height + 7;
+	background-color: $navbar-default-bg;
+	height: $navbar-height + 10;
+	@include floor;
+	@include ceiling;
+}
+
+// Header on home page
+#header.header--home {
+	background-color: transparent;
+}
+
+/*
+// Navbar on home page
+#header.header--home {
+	&.headroom--top .navbar {
+		background-color: transparent;
+	}
+	&.headroom--not-top.slideDown .navbar,
+	&.headroom--not-top.headroom--middle.slideUp .navbar {
+		
+	}
+}
+
+// Navbar on other page
+#header.header--page {
+	.navbar {
+		background-color: fade($navbar-default-bg, 98%);
+	}
+}
+ */
+
+
+// General styles
+.navbar {
+	@include clearfix();
+	margin: 0;
+	font-weight: 500;
+}
+
+.navbar-header {
+	float: left;
+	margin-right: 30px;
+	line-height: 0;
+}
+
+.site-nav-toggle {
+	display: none;
+}
+
+.site-branding {
+	display: block;
+	width: 120px;
+	
+	> svg {
+		width: 100%;
+		height: $navbar-height + 10;
+	}
+}
+
+nav {
+	@include clearfix();
+}
+
+.header-placeholder {
+	height: $navbar-height + 10;
+}
+
+.navbar-nav {
+	@include clearfix();
+	margin-bottom: 0;
+	padding-left: 0;
+	list-style: none;
+
+	> li {
+		display: inline-block;
+	}
+	> li > a {
+		@include transition( all 0.1s ease );
+		display: block;
+		padding-top: 3px;
+		padding-right: 15px;
+		padding-left: 15px;
+		outline: none;
+		color: fade(white, 60%);
+		text-transform: uppercase;
+		font-weight: 300;
+		font-size: $font-size-base * 1.1;
+
+		&:hover {
+			color: white;
+			text-decoration: none;
+		}
+		&:active,
+		&:focus {
+			color: fade(white, 40%);
+			text-decoration: none;
+		}
+	}
+	> li.active > a {
+		//background: mix($navbar-default-bg, black, 95%);
+		color: white;
+	}
+	> li > a.user {
+		text-transform: none;
+		img {
+			margin-right: 5px;
+		}
+	}
+}
+
+.navbar-nav.navbar-nav--left {
+	float: left;
+}
+
+.navbar-nav.navbar-nav--right {
+	float: right;
+}
+
+// Mobile styles
+@media (max-width: $screen-sm-max) {
+	.site-branding {
+		width: 100px;
+		> svg {
+			height: $navbar-height;
+		}
+	}
+	.navbar-header {
+		@include floor;
+		@include ceiling;
+		float: none;
+		width: 100%;
+		height: $navbar-height;
+
+		.user {
+			position: absolute;
+			right: 40px;
+			top: 50%;
+			@include translate(0,-50%);
+		}
+	}
+
+	// Site nav toggle
+	.site-nav-toggle {
+		@include ceiling;
+		@include translate(0,-50%);
+		position: absolute;
+		top: 50%;
+		right: 0;
+		display: block;
+		padding: 20px 0 20px 20px;
+
+		.patty {
+			@include transition(all 0.2s ease);
+			position: relative;
+			width: 24px;
+			height: 2px;
+			border-radius: 2px;
+			background: fade( white, 50% );
+
+			&:before, &:after {
+				@include transition(all 0.2s ease);
+				position: absolute;
+				z-index: 1;
+				display: block;
+				width: 24px;
+				height: 2px;
+				border-radius: 2px;
+				background: fade( white, 50% );
+				content: '';
+			}
+
+			&:before { top: -7px; }
+			&:after { top: 7px; }
+		}
+
+		&.open {
+			.patty {
+				background: none;
+				&:before { @include rotate(-45deg); top: 0; background: $gray-dark; }
+				&:after { @include rotate(45deg); top: 0; background: $gray-dark; }
+			}
+		}
+	}
+
+	#site-nav {
+		@include opacity( 0 );
+		@include transition(all 0.2s ease);
+		@include floor-6;
+		@include square(100%);
+		position: fixed;
+		top: 0;
+		left: 0;
+		visibility: hidden;
+		overflow: hidden;
+		background: fade( white, 99% );
+
+		nav {
+			@include perspective(1200px);
+			@include translate(0,-50%);
+			position: relative;
+			top: 50%;
+			overflow: hidden;
+			text-align: center;
+
+			.navbar-nav {
+				@include opacity(0.4);
+				@include translate(0, 25%);
+				@include transition(all 0.5s);
+				position: relative;
+				float: none;
+				text-align: center;
+
+				> li {
+					display: block;
+				}
+				> li > a {
+					color: $gray-dark;
+					font-size: $font-size-base * 2;
+					-webkit-tap-highlight-color: fade( black, 30% );
+				}
+
+				> li.active a {
+					background: none;
+					color: $gray-light;
+				}
+			}
+		}
+
+		&.open {
+			@include opacity( 1 );
+			visibility: visible;
+
+			nav {
+				ul {
+					@include opacity( 1 );
+					@include translate( 0,0 );
+				}
+			}
+		}
+	}
+}

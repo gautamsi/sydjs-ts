@@ -6,6 +6,7 @@
         "**/dist": true
     },
     "typescript.referencesCodeLens.enabled": true,
+    "editor.detectIndentation": false,
     "tslint.ignoreDefinitionFiles": false,
     "tslint.autoFixOnSave": true,
     "tslint.exclude": "**/node_modules/**/*" 

@@ -1,12 +1,15 @@
 {
     "compilerOptions": {
+        "skipLibCheck": true,
         "module": "commonjs",
         "target": "es6",
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "moduleResolution": "node",
         "sourceMap": true,
         "outDir": "dist",
         "baseUrl": ".",
+        "jsx": "react",
+        "noEmitOnError": false,
         "paths": {
             "*": [
                 "node_modules/*",
