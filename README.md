@@ -12,6 +12,8 @@ KeyStone typings taken from [@webteckie/keystonejs-ts](https://github.com/webtec
 
 see dedicated section [TypeScript Getting Started](#TypeScript-Getting-Started)
 
+switched to sass and pug instead of less and jade
+
 =========
 ## The SydJS Website.
 
