@@ -85,9 +85,11 @@
 
 	The skin of the site.
 */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:800italic|Roboto:400,300,400italic,500,500italic,700,700italic,900,900italic);
+
+@import "https://fonts.googleapis.com/css?family=Open+Sans:800italic|Roboto:400,300,400italic,500,500italic,700,700italic,900,900italic";
 // @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic);
 // @import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+
 
 @import "site/variables";
 @import "site/mixins";
@@ -102,7 +104,6 @@
 @import "site/home";
 @import "site/me";
 @import "site/showbag";
-
 
 
 @import "components/headroom"; // remove if you don't want the header auto show/hide effect
