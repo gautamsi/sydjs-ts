@@ -35,7 +35,7 @@ keystone.init(<any>{
     "emails": "../templates/emails",
 
     "auto update": true,
-    "mongo": process.env.MONGO_URI || "mongodb://localhost/" + pkg.name,
+    "mongo": process.env.MONGO_URI || "mongodb://localhost/sydjs-ts",
 
     "session": true,
     "session store": "mongo",
