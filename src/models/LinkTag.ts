@@ -1,12 +1,12 @@
-import * as keystone from "keystone";
-const Types = keystone.Field.Types;
+import { Keystone, FieldTypes } from "keystone";
+const Types = FieldTypes;
 
 /**
  * Link Tags Model
  * ===============
  */
 
-const LinkTag = new keystone.List("LinkTag", {
+const LinkTag = new Keystone.List("LinkTag", {
     autokey: { from: "name", path: "key", unique: true }
 });
 

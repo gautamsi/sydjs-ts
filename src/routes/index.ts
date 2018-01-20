@@ -2,7 +2,7 @@ import * as babelify from "babelify";
 import * as bodyParser from "body-parser";
 import * as browserify from "browserify-middleware";
 import * as clientConfig from "../client/config";
-import * as keystone from "keystone";
+import { keystone } from "keystone";
 import * as middleware from "./middleware";
 import * as graphqlHTTP from "express-graphql";
 import graphQLSchema from "../graphql/basicSchema";
@@ -37,7 +37,7 @@ keystone.set("500", function (err, req, res, next) {
 });
 
 // Load Routes
-const routes = {
+const routes: { api, views, auth } = {
     api: importRoutes("./api"),
     views: importRoutes("./views"),
     auth: importRoutes("./auth"),

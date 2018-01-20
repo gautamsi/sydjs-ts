@@ -1,4 +1,4 @@
-import * as keystone from "keystone";
+import { keystone } from "keystone";
 const RSVP = keystone.list("RSVP");
 
 export = function (req, res) {

@@ -1,13 +1,13 @@
 import * as  _ from "lodash";
-import * as keystone from "keystone";
-const Types = keystone.Field.Types;
+import { Keystone, FieldTypes } from "keystone";
+const Types = FieldTypes;
 
 /**
  * Talks Model
  * ===========
  */
 
-const Talk = new keystone.List("Talk", {
+const Talk = new Keystone.List("Talk", {
     track: true,
     sortable: true,
     sortContext: "Meetup:talks"

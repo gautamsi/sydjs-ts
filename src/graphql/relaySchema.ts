@@ -21,7 +21,7 @@ import {
 
 import * as keystoneTypes from "./keystoneTypes";
 
-import * as keystone from "keystone";
+import { keystone } from "keystone";
 const Meetup = keystone.list("Meetup");
 const Talk = keystone.list("Talk");
 const User = keystone.list("User");

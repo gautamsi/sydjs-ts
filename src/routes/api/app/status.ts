@@ -1,4 +1,4 @@
-import * as keystone from "keystone";
+import { keystone, Keystone } from "keystone";
 import * as async from "async";
 import * as _ from "lodash";
 import * as	moment from "moment";
@@ -107,7 +107,7 @@ export = function (req, res) {
                 place: meetup.place,
                 map: meetup.map,
 
-                description: keystone.utils.cropString(keystone.utils.htmlToText(meetup.description), 250, "...", true),
+                description: Keystone.utils.cropString(Keystone.utils.htmlToText(meetup.description), 250, "...", true),
 
                 ticketsAvailable: meetup.rsvpsAvailable,
                 ticketsRemaining: meetup.remainingRSVPs,

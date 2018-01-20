@@ -1,4 +1,4 @@
-import * as keystone from "keystone";
+import { keystone, Keystone } from "keystone";
 import * as async from "async";
 
 export = function (req, res) {
@@ -7,7 +7,7 @@ export = function (req, res) {
         return res.redirect(req.cookies.target || "/me");
     }
 
-    const view = new keystone.View(req, res),
+    const view = new Keystone.View(req, res),
         locals = res.locals;
 
     locals.section = "session";
@@ -83,7 +83,7 @@ export = function (req, res) {
                 return next();
             };
 
-            keystone.session.signin({ email: req.body.email, password: req.body.password }, req, res, onSuccess, onFail);
+            Keystone.session.signin({ email: req.body.email, password: req.body.password }, req, res, onSuccess, onFail);
 
         });
 

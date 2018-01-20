@@ -1,14 +1,20 @@
 import * as async from "async";
 import * as crypto from "crypto";
 
-import * as keystone from "keystone";
-const Types = keystone.Field.Types;
+import { keystone, Keystone, FieldTypes } from "keystone";
+const Types = FieldTypes;
 /**
  * Users Model
  * ===========
  */
 
-const User = new keystone.List("User", {
+
+ interface User {
+     name;
+     email;
+     password;
+ }
+const User = new Keystone.List<User>("User", {
     track: true,
     autokey: { path: "key", from: "name", unique: true }
 });
@@ -197,10 +203,10 @@ User.schema.virtual("githubUsername").get(function () {
 
 User.schema.methods.resetPassword = function (callback) {
     const user = this;
-    user.resetPasswordKey = keystone.utils.randomString([16, 24]);
+    user.resetPasswordKey = Keystone.utils.randomString([16, 24]);
     user.save(function (err) {
         if (err) return callback(err);
-        new keystone.Email("forgotten-password").send({
+        new Keystone.Email("forgotten-password").send({
             user: user,
             link: "/reset-password/" + user.resetPasswordKey,
             subject: "Reset your SydJS Password",

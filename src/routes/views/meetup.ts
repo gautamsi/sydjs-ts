@@ -1,4 +1,4 @@
-import * as keystone from "keystone";
+import { keystone, Keystone } from "keystone";
 import * as moment from "moment";
 
 const Meetup = keystone.list("Meetup");
@@ -6,7 +6,7 @@ const RSVP = keystone.list("RSVP");
 
 export = function (req, res) {
 
-    const view = new keystone.View(req, res);
+    const view = new Keystone.View(req, res);
     const locals = res.locals;
 
     locals.section = "meetups";

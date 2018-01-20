@@ -14,7 +14,7 @@ require("dotenv").config({ silent: true });
  * Application Initialisation
  */
 
-import * as keystone from "keystone";
+import { keystone, Keystone } from "keystone";
 const pkg = require("../package.json");
 
 keystone.init(<any>{
@@ -53,7 +53,8 @@ keystone.init(<any>{
 
     "cloudinary secure": true,
 
-    "basedir": __dirname
+    "basedir": __dirname,
+    "module root": __dirname
 
 });
 
@@ -66,16 +67,16 @@ keystone.set("locals", {
     moment: require("moment"),
     js: "javascript:;",
     env: keystone.get("env"),
-    utils: keystone.utils,
-    plural: keystone.utils.plural,
-    editable: keystone.content.editable,
+    utils: Keystone.utils,
+    plural: Keystone.utils.plural,
+    editable: Keystone.content.editable,
     google_api_key: keystone.get("google api key"),
     ga_property: keystone.get("ga property"),
     ga_domain: keystone.get("ga domain")
 });
 
 keystone.set("email locals", {
-    utils: keystone.utils,
+    utils: Keystone.utils,
     host: (function () {
         if (keystone.get("env") === "staging") return "http://sydjs-beta.herokuapp.com";
         if (keystone.get("env") === "production") return "http://www.sydjs.com";

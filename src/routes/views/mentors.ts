@@ -1,10 +1,10 @@
-import * as keystone from "keystone";
+import { keystone, Keystone } from "keystone";
 
 const User = keystone.list("User");
 
 export = function (req, res) {
 
-    const view = new keystone.View(req, res),
+    const view = new Keystone.View(req, res),
         locals = res.locals;
 
     locals.section = "members";

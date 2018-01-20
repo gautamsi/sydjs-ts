@@ -1,11 +1,11 @@
-import * as keystone from "keystone";
+import { keystone, Keystone } from "keystone";
 import * as async from "async";
 
 const Link = keystone.list("Link");
 
 export = function (req, res) {
 
-    const view = new keystone.View(req, res),
+    const view = new Keystone.View(req, res),
         locals = res.locals;
 
     // Init locals

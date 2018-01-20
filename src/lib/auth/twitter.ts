@@ -1,6 +1,6 @@
 import * as _ from "lodash";
 import * as async from "async";
-import * as keystone from "keystone";
+import { keystone } from "keystone";
 import * as passport from "passport";
 import { Strategy as passportTwitterStrategy } from "passport-twitter";
 const User = keystone.list("User");

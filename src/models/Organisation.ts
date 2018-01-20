@@ -1,12 +1,12 @@
-import * as keystone from "keystone";
-const Types = keystone.Field.Types;
+import { Keystone, FieldTypes } from "keystone";
+const Types = FieldTypes;
 
 /**
  * Organisations Model
  * ===================
  */
 
-const Organisation = new keystone.List("Organisation", {
+const Organisation = new Keystone.List("Organisation", {
     track: true,
     autokey: { path: "key", from: "name", unique: true }
 });

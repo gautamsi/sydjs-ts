@@ -1,9 +1,9 @@
-import * as keystone from "keystone";
+import { keystone, Keystone } from "keystone";
 const Link = keystone.list("Link");
 
 export = function (req, res) {
 
-    const view = new keystone.View(req, res),
+    const view = new Keystone.View(req, res),
         locals = res.locals;
 
     locals.section = "me";

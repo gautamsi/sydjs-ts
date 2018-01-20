@@ -1,12 +1,12 @@
-import * as keystone from "keystone";
-const Types = keystone.Field.Types;
+import { Keystone, FieldTypes } from "keystone";
+const Types = FieldTypes;
 
 /**
  * Post Categories Model
  * =====================
  */
 
-const PostCategory = new keystone.List("PostCategory", {
+const PostCategory = new Keystone.List("PostCategory", {
     track: true,
     autokey: { from: "name", path: "key", unique: true }
 });

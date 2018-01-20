@@ -1,12 +1,12 @@
-import * as keystone from "keystone";
-const Types = keystone.Field.Types;
+import { Keystone, FieldTypes } from "keystone";
+const Types = FieldTypes;
 
 /**
  * Post Comments Model
  * ===================
  */
 
-const PostComment = new keystone.List("PostComment", {
+const PostComment = new Keystone.List("PostComment", {
     nocreate: true
 });
 

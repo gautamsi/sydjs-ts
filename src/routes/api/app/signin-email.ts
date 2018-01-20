@@ -1,4 +1,4 @@
-import * as keystone from "keystone";
+import { keystone, Keystone } from "keystone";
 
 export = function (req, res) {
 
@@ -14,7 +14,7 @@ export = function (req, res) {
             });
         }
 
-        keystone.session.signin({ email: user.email, password: req.body.password }, req, res, function (user) {
+        Keystone.session.signin({ email: user.email, password: req.body.password }, req, res, function (user) {
 
             return res.apiResponse({
                 success: true,

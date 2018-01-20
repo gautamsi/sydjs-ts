@@ -1,12 +1,12 @@
-import * as keystone from "keystone";
-const Types = keystone.Field.Types;
+import { Keystone, FieldTypes } from "keystone";
+const Types = FieldTypes;
 
 /**
  * Links Model
  * ===========
  */
 
-const Link = new keystone.List("Link", {
+const Link = new Keystone.List("Link", {
     map: { name: "label" },
     track: true,
     autokey: { path: "slug", from: "label", unique: true }

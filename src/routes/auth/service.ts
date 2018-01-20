@@ -1,4 +1,4 @@
-import * as keystone from "keystone";
+import { keystone } from "keystone";
 import * as async from "async";
 
 const services = {

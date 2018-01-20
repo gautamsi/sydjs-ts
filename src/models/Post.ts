@@ -1,13 +1,13 @@
 import * as async from "async";
-import * as keystone from "keystone";
-const Types = keystone.Field.Types;
+import { keystone, Keystone, FieldTypes } from "keystone";
+const Types = FieldTypes;
 
 /**
  * Posts Model
  * ===========
  */
 
-const Post = new keystone.List("Post", {
+const Post = new Keystone.List("Post", {
     map: { name: "title" },
     track: true,
     autokey: { path: "slug", from: "title", unique: true }
@@ -55,7 +55,7 @@ Post.schema.methods.notifyAdmins = function (callback) {
     const sendEmail = function (err, results) {
         if (err) return callback(err);
         async.each(results.admins, function (admin: any, done) {
-            new keystone.Email("admin-notification-new-post").send({
+            new Keystone.Email("admin-notification-new-post").send({
                 admin: admin.name.first || admin.name.full,
                 author: results.author ? results.author.name.full : "Somebody",
                 title: post.title,

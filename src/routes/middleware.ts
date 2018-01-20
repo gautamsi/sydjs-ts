@@ -1,4 +1,4 @@
-import * as keystone from "keystone";
+import { keystone } from "keystone";
 import * as _ from "lodash";
 import * as querystring from "querystring";
 

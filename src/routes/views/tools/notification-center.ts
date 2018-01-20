@@ -1,4 +1,4 @@
-import * as keystone from "keystone";
+import { keystone, Keystone } from "keystone";
 import * as async from "async";
 
 const Meetup = keystone.list("Meetup");
@@ -6,7 +6,7 @@ const User = keystone.list("User");
 
 export = function (req, res) {
 
-    const view = new keystone.View(req, res),
+    const view = new Keystone.View(req, res),
         locals = res.locals;
 
     locals.section = "tools";
@@ -64,7 +64,7 @@ export = function (req, res) {
                     console.error("===== Failed to send meetup notification emails =====");
                     console.error(err);
                 } else {
-                    req.flash("success", "Notification sent to " + keystone.utils.plural(locals.nextMeetup.rsvps.length, "* attendee"));
+                    req.flash("success", "Notification sent to " + Keystone.utils.plural(locals.nextMeetup.rsvps.length, "* attendee"));
                 }
                 next();
             });
@@ -80,7 +80,7 @@ export = function (req, res) {
             return next();
         } else {
             async.each(locals.subscribers, function (subscriber: any, doneSubscriber) {
-                new keystone.Email("member-notification").send({
+                new Keystone.Email("member-notification").send({
                     subscriber: subscriber,
                     subject: req.body.subscriber_email_subject || "Notification from SydJS",
                     content: req.body.subscriber_email_content,
@@ -98,7 +98,7 @@ export = function (req, res) {
                     console.error("===== Failed to send subscriber emails =====");
                     console.error(err);
                 } else {
-                    req.flash("success", "Email sent to " + keystone.utils.plural(locals.subscribers.length, "* subscriber"));
+                    req.flash("success", "Email sent to " + Keystone.utils.plural(locals.subscribers.length, "* subscriber"));
                 }
                 next();
             });

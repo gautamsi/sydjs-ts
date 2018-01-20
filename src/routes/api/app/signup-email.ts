@@ -1,4 +1,4 @@
-import * as keystone from "keystone";
+import { keystone, Keystone } from "keystone";
 import * as async from "async";
 import * as request from "request";
 import * as _ from "lodash";
@@ -39,7 +39,7 @@ export = function (req, res) {
             });
         };
 
-        keystone.session.signin(String(locals.newUser._id), req, res, onSuccess, onFail);
+        Keystone.session.signin(String(locals.newUser._id), req, res, onSuccess, onFail);
 
     };
 

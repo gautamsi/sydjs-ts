@@ -1,5 +1,5 @@
 import * as async from "async";
-import * as keystone from "keystone";
+import { keystone } from "keystone";
 const RSVP = keystone.list("RSVP");
 const User = keystone.list("User");
 

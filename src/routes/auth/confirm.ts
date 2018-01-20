@@ -1,4 +1,4 @@
-import * as keystone from "keystone";
+import { keystone, Keystone } from "keystone";
 import * as async from "async";
 import * as request from "request";
 import * as _ from "lodash";
@@ -6,7 +6,7 @@ const User = keystone.list("User");
 
 export = function (req, res) {
 
-    const view = new keystone.View(req, res),
+    const view = new Keystone.View(req, res),
         locals = res.locals;
 
     locals.section = "profile";
@@ -47,7 +47,7 @@ export = function (req, res) {
             return res.redirect("/signin");
         };
 
-        keystone.session.signin(String(locals.existingUser._id), req, res, onSuccess, onFail);
+        Keystone.session.signin(String(locals.existingUser._id), req, res, onSuccess, onFail);
 
     };
 

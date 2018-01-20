@@ -1,4 +1,4 @@
-import * as keystone from "keystone";
+import { keystone } from "keystone";
 const User = keystone.list("User");
 
 export = function (req, res) {

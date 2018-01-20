@@ -1,12 +1,12 @@
-import * as keystone from "keystone";
-const Types = keystone.Field.Types;
+import { keystone, Keystone, FieldTypes } from "keystone";
+const Types = FieldTypes;
 
 /**
  * RSVPs Model
  * ===========
  */
 
-const RSVP = new keystone.List("RSVP");
+const RSVP = new Keystone.List("RSVP", {});
 
 RSVP.add({
     meetup: { type: Types.Relationship, ref: "Meetup", required: true, initial: true, index: true },

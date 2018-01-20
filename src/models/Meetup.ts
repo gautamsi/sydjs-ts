@@ -1,14 +1,14 @@
 import * as _ from "lodash";
 import * as moment from "moment";
-import * as keystone from "keystone";
-const Types = keystone.Field.Types;
+import { keystone, Keystone, FieldTypes } from "keystone";
+const Types = FieldTypes;
 
 /**
  * Meetups Model
  * =============
  */
 
-const Meetup = new keystone.List("Meetup", {
+const Meetup = new Keystone.List("Meetup", {
     track: true,
     autokey: { path: "key", from: "name", unique: true }
 });
@@ -113,7 +113,7 @@ Meetup.schema.methods.notifyAttendees = function (req, res, next) {
             next();
         } else {
             attendees.forEach(function (attendee) {
-                new keystone.Email("new-meetup").send({
+                new Keystone.Email("new-meetup").send({
                     attendee: attendee,
                     meetup: meetup,
                     subject: "New meetup: " + meetup.name,

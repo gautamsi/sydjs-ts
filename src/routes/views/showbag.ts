@@ -1,4 +1,4 @@
-import * as keystone from "keystone";
+import { keystone, Keystone } from "keystone";
 import * as _ from "lodash";
 
 const User = keystone.list("User");
@@ -6,7 +6,7 @@ const Organisation = keystone.list("Organisation");
 
 export = function (req, res) {
 
-    const view = new keystone.View(req, res);
+    const view = new Keystone.View(req, res);
     const locals = res.locals;
 
     locals.section = "showbag";

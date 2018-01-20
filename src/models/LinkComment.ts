@@ -1,12 +1,12 @@
-import * as keystone from "keystone";
-const Types = keystone.Field.Types;
+import { Keystone, FieldTypes } from "keystone";
+const Types = FieldTypes;
 
 /**
  * Link Comments Model
  * ===================
  */
 
-const LinkComment = new keystone.List("LinkComment", {
+const LinkComment = new Keystone.List("LinkComment", {
     nocreate: true
 });
 
