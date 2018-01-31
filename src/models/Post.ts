@@ -1,6 +1,6 @@
 import * as async from "async";
-import { keystone, Keystone, FieldTypes } from "keystone";
-const Types = FieldTypes;
+import { keystone, Keystone, FieldTypes as Types } from "keystone";
+
 
 /**
  * Posts Model

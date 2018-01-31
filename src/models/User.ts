@@ -1,8 +1,8 @@
 import * as async from "async";
 import * as crypto from "crypto";
 
-import { keystone, Keystone, FieldTypes } from "keystone";
-const Types = FieldTypes;
+import { keystone, Keystone, FieldTypes as Types } from "keystone";
+
 /**
  * Users Model
  * ===========

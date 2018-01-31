@@ -1,6 +1,6 @@
 import * as  _ from "lodash";
-import { Keystone, FieldTypes } from "keystone";
-const Types = FieldTypes;
+import { Keystone, FieldTypes as Types } from "keystone";
+
 
 /**
  * Talks Model

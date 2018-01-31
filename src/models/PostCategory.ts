@@ -1,5 +1,5 @@
-import { Keystone, FieldTypes } from "keystone";
-const Types = FieldTypes;
+import { Keystone, FieldTypes as Types } from "keystone";
+
 
 /**
  * Post Categories Model
