@@ -22,6 +22,20 @@
             //"sourceMaps": false,
             //"preLaunchTask": "npm: build",
             "protocol": "inspector"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug2",
+            "program": "${workspaceRoot}/src/keystone.ts",
+            "smartStep": true,
+            "runtimeArgs": [
+                "-r ts-node/register"
+                
+            ],
+            //"sourceMaps": false,
+            //"preLaunchTask": "npm: build",
+            "protocol": "inspector"
         }
     ]
 }

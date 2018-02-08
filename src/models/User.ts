@@ -1,7 +1,7 @@
 import * as async from "async";
 import * as crypto from "crypto";
 
-import { keystone, Keystone, FieldTypes as Types } from "keystone";
+import { keystone, Keystone, FieldTypes as Types, FieldTypes } from "keystone";
 
 /**
  * Users Model
@@ -9,11 +9,11 @@ import { keystone, Keystone, FieldTypes as Types } from "keystone";
  */
 
 
- interface User {
-     name;
-     email;
-     password;
- }
+interface User {
+    name;
+    email;
+    password;
+}
 const User = new Keystone.List<User>("User", {
     track: true,
     autokey: { path: "key", from: "name", unique: true }
@@ -29,11 +29,13 @@ const deps = {
 };
 
 User.add({
-    name: { type: Types.Name, required: true, index: true },
-    email: { type: Types.Email, initial: true, index: true },
-    password: { type: Types.Password, initial: true },
-    resetPasswordKey: { type: String, hidden: true }
-}, "Profile", {
+        name: { type: Types.Name, required: true, index: true },
+        email: { type: Types.Email, initial: true, index: true },
+        password: { type: Types.Password, initial: true },
+        resetPasswordKey: { type: String, hidden: true }
+    },
+        "Profile",
+    {
         isPublic: { type: Boolean, default: true },
         isOrganiser: Boolean,
         isGroup: Boolean,
@@ -44,12 +46,16 @@ User.add({
         website: { type: Types.Url },
         bio: { type: Types.Markdown },
         gravatar: { type: String, noedit: true }
-    }, "Notifications", {
+    },
+        "Notifications",
+    {
         notifications: {
             posts: { type: Boolean },
             meetups: { type: Boolean, default: true }
         }
-    }, "Mentoring", {
+    },
+        "Mentoring",
+    {
         mentoring: {
             available: { type: Boolean, label: "Is Available", index: true },
             free: { type: Boolean, label: "For Free", dependsOn: deps.mentoring },
@@ -58,10 +64,14 @@ User.add({
             have: { type: String, label: "Has...", dependsOn: deps.mentoring },
             want: { type: String, label: "Wants...", dependsOn: deps.mentoring }
         }
-    }, "Permissions", {
+    },
+        "Permissions",
+    {
         isAdmin: { type: Boolean, label: "Can Admin SydJS" },
         isVerified: { type: Boolean, label: "Has a verified email address" }
-    }, "Services", {
+    },
+        "Services",
+    {
         services: {
             github: {
                 isConfigured: { type: Boolean, label: "GitHub has been authenticated" },
@@ -108,7 +118,9 @@ User.add({
                 refreshToken: { type: String, label: "Refresh Token", dependsOn: deps.twitter }
             }
         }
-    }, "Meta", {
+    },
+        "Meta",
+    {
         talkCount: { type: Number, default: 0, noedit: true },
         lastRSVP: { type: Date, noedit: true }
     });

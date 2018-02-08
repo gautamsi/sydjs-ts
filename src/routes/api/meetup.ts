@@ -1,8 +1,8 @@
 import * as _ from "lodash";
 import * as async from "async";
 import { keystone } from "keystone";
-const Meetup = keystone.list("Meetup");
-const RSVP = keystone.list("RSVP");
+// const Meetup = keystone.list("Meetup");
+// const RSVP = keystone.list("RSVP");
 
 export = function (req, res) {
 
