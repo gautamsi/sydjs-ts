@@ -2,7 +2,7 @@ import * as keystone from "keystone";
 import * as async from "async";
 import * as _ from "lodash";
 import * as	moment from "moment";
-import * as crypto from "crypto";
+import { createHash } from "crypto";
 
 export = function (req, res) {
 
@@ -114,7 +114,7 @@ export = function (req, res) {
 
                 talks: current ? data.talks.next : data.talks.last
             };
-            meetupData.hash = crypto.createHash("md5").update(JSON.stringify(meetupData)).digest("hex");
+            meetupData.hash = createHash("md5").update(JSON.stringify(meetupData)).digest("hex");
             return meetupData;
         };
 

@@ -12,7 +12,7 @@ const credentials = {
     profileFields: []
 };
 
-if (process.env.FACEBOOK_API >= 2.4) {
+if (Number(process.env.FACEBOOK_API) >= 2.4) {
     credentials.profileFields = ["id", "birthday", "email", "first_name", "gender", "last_name", "displayName"];
 }
 
@@ -65,7 +65,7 @@ export function authenticateUser(req, res, next) {
                     last: name.length > 1 ? name[1] : ""
                 },
 
-                email: data.profile.emails.length ? _.first<{ value: string }>(data.profile.emails).value : null,
+                email: data.profile.emails && data.profile.emails.length ? _.first<{ value: string }>(data.profile.emails).value : null,
 
                 website: data.profile._json.blog,
 

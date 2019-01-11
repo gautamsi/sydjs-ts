@@ -82,7 +82,7 @@ const meetupStateEnum: any = new GraphQLEnumType({
     },
 });
 
-const meetupType: any = new GraphQLObjectType({
+const meetupType: any = new GraphQLObjectType(<any>{
     name: "Meetup",
     fields: () => ({
         // TODO when the new version of `graphql-relay` comes out it
@@ -143,7 +143,7 @@ const meetupType: any = new GraphQLObjectType({
     interfaces: [nodeInterface],
 });
 
-const talkType: any = new GraphQLObjectType({
+const talkType: any = new GraphQLObjectType(<any>{
     name: "Talk",
     fields: () => ({
         id: globalIdField("Talk"),

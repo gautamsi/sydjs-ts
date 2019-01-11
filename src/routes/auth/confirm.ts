@@ -97,12 +97,12 @@ export = function (req, res) {
                     if (err) {
                         console.log("[auth.confirm] - Error finding existing user via email.", err);
                         console.log("------------------------------------------------------------");
-                        return next({ message: "Sorry, there was an error processing your information, please try again." });
+                        return next({ message: "Sorry, there was an error processing your information, please try again.", name: "" });
                     }
                     if (user) {
                         console.log("[auth.confirm] - Found existing user via email address...");
                         console.log("------------------------------------------------------------");
-                        return next({ message: "There's already an account with that email address, please sign-in instead." });
+                        return next({ message: "There's already an account with that email address, please sign-in instead.", name: "" });
                     }
                     return next();
                 });
@@ -147,7 +147,7 @@ export = function (req, res) {
                         if (err) {
                             console.log("[auth.confirm] - Error saving existing user.", err);
                             console.log("------------------------------------------------------------");
-                            return next({ message: "Sorry, there was an error processing your account, please try again." });
+                            return next({ message: "Sorry, there was an error processing your account, please try again.", name: "" });
                         }
                         console.log("[auth.confirm] - Saved existing user.");
                         console.log("------------------------------------------------------------");
@@ -196,7 +196,7 @@ export = function (req, res) {
                         if (err) {
                             console.log("[auth.confirm] - Error saving new user.", err);
                             console.log("------------------------------------------------------------");
-                            return next({ message: "Sorry, there was an error processing your account, please try again." });
+                            return next({ message: "Sorry, there was an error processing your account, please try again.", name: "" });
                         }
                         console.log("[auth.confirm] - Saved new user.");
                         console.log("------------------------------------------------------------");

@@ -1,5 +1,6 @@
 import * as keystone from "keystone";
 import * as async from "async";
+import * as Email from "keystone-email";
 
 const Meetup = keystone.list("Meetup");
 const User = keystone.list("User");
@@ -80,12 +81,14 @@ export = function (req, res) {
             return next();
         } else {
             async.each(locals.subscribers, function (subscriber: any, doneSubscriber) {
-                new keystone.Email("member-notification").send({
+                new Email("member-notification", { transport: "mandrill", engine: "jade", root: "templates/emails" }).send({
                     subscriber: subscriber,
-                    subject: req.body.subscriber_email_subject || "Notification from SydJS",
                     content: req.body.subscriber_email_content,
                     link_label: req.body.subscriber_email_link_label,
                     link_url: req.body.subscriber_email_link_url,
+                    host: "http://www.sydjs.com",
+                }, {
+                    subject: req.body.subscriber_email_subject || "Notification from SydJS",
                     to: subscriber.email,
                     from: {
                         name: "SydJS",

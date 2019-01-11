@@ -61,12 +61,12 @@ export = function (req, res) {
                 if (err) {
                     console.log("[api.app.service]  - Error finding existing user via email.", err);
                     console.log("------------------------------------------------------------");
-                    return next({ message: "Sorry, there was an error processing your information, please try again." });
+                    return next({ message: "Sorry, there was an error processing your information, please try again.", name: "" });
                 }
                 if (user) {
                     console.log("[api.app.service]  - Found existing user via email address...");
                     console.log("------------------------------------------------------------");
-                    return next({ message: "There's already an account with that email address, please sign-in instead." });
+                    return next({ message: "There's already an account with that email address, please sign-in instead.", name: "" });
                 }
                 return next();
             });
@@ -165,7 +165,7 @@ export = function (req, res) {
                     if (err) {
                         console.log("[api.app.service]  - Error saving new user.", err);
                         console.log("------------------------------------------------------------");
-                        return next({ message: "Sorry, there was an error processing your account, please try again." });
+                        return next({ message: "Sorry, there was an error processing your account, please try again.", name: "" });
                     }
                     console.log("[api.app.service]  - Saved new user.");
                     console.log("------------------------------------------------------------");

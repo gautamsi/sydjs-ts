@@ -1,5 +1,6 @@
 import * as async from "async";
 import * as keystone from "keystone";
+import * as Email from "keystone-email";
 const Types = keystone.Field.Types;
 
 /**
@@ -55,19 +56,20 @@ Post.schema.methods.notifyAdmins = function (callback) {
     const sendEmail = function (err, results) {
         if (err) return callback(err);
         async.each(results.admins, function (admin: any, done) {
-            new keystone.Email("admin-notification-new-post").send({
+            new Email("admin-notification-new-post", { transport: "mandrill", engine: "pug", root: "templates/emails" }).send({
                 admin: admin.name.first || admin.name.full,
                 author: results.author ? results.author.name.full : "Somebody",
                 title: post.title,
                 keystoneURL: "http://www.sydjs.com/keystone/post/" + post.id,
-                subject: "New Post to SydJS"
+                host: "http://www.sydjs.com",
             }, {
-                    to: admin,
-                    from: {
-                        name: "SydJS",
-                        email: "contact@sydjs.com"
-                    }
-                }, done);
+                subject: "New Post to SydJS",
+                to: admin,
+                from: {
+                    name: "SydJS",
+                    email: "contact@sydjs.com"
+                }
+            }, done);
         }, callback);
     };
     // Query data in parallel

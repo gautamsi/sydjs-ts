@@ -1,5 +1,6 @@
 import * as _ from "lodash";
 import * as moment from "moment";
+import * as Email from "keystone-email";
 import * as keystone from "keystone";
 const Types = keystone.Field.Types;
 
@@ -113,9 +114,11 @@ Meetup.schema.methods.notifyAttendees = function (req, res, next) {
             next();
         } else {
             attendees.forEach(function (attendee) {
-                new keystone.Email("new-meetup").send({
+                new Email("new-meetup", { transport: "mandrill", engine: "pug", root: "templates/emails" }).send({
                     attendee: attendee,
                     meetup: meetup,
+                    host: "http://www.sydjs.com",
+                }, {
                     subject: "New meetup: " + meetup.name,
                     to: attendee.email,
                     from: {

@@ -1,7 +1,8 @@
 import * as async from "async";
-import * as crypto from "crypto";
+import { createHash } from "crypto";
 
 import * as keystone from "keystone";
+import * as Email from "keystone-email";
 const Types = keystone.Field.Types;
 /**
  * Users Model
@@ -116,7 +117,7 @@ User.schema.pre("save", function (next) {
     async.parallel([
         function (done) {
             if (!member.email) return done();
-            member.gravatar = crypto.createHash("md5").update(member.email.toLowerCase().trim()).digest("hex");
+            member.gravatar = createHash("md5").update(member.email.toLowerCase().trim()).digest("hex");
             return done();
         },
         function (done) {
@@ -200,9 +201,11 @@ User.schema.methods.resetPassword = function (callback) {
     user.resetPasswordKey = keystone.utils.randomString([16, 24]);
     user.save(function (err) {
         if (err) return callback(err);
-        new keystone.Email("forgotten-password").send({
+        new Email("forgotten-password", { transport: "mandrill", engine: "pug", root: "templates/emails" }).send({
             user: user,
             link: "/reset-password/" + user.resetPasswordKey,
+            host: "http://www.sydjs.com",
+        }, {
             subject: "Reset your SydJS Password",
             to: user.email,
             from: {

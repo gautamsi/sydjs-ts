@@ -32,7 +32,7 @@ keystone.init(<any>{
     "view engine": "pug",
     "view cache": false,
 
-    "emails": "../templates/emails",
+    // "emails": "../templates/emails",
 
     "auto update": true,
     "mongo": process.env.MONGO_URI || "mongodb://localhost/sydjs-ts",
@@ -74,14 +74,14 @@ keystone.set("locals", {
     ga_domain: keystone.get("ga domain")
 });
 
-keystone.set("email locals", {
-    utils: keystone.utils,
-    host: (function () {
-        if (keystone.get("env") === "staging") return "http://sydjs-beta.herokuapp.com";
-        if (keystone.get("env") === "production") return "http://www.sydjs.com";
-        return (keystone.get("host") || "http://localhost:") + (keystone.get("port") || "3000");
-    })()
-});
+// keystone.set("email locals", {
+//     utils: keystone.utils,
+//     host: (function () {
+//         if (keystone.get("env") === "staging") return "http://sydjs-beta.herokuapp.com";
+//         if (keystone.get("env") === "production") return "http://www.sydjs.com";
+//         return (keystone.get("host") || "http://localhost:") + (keystone.get("port") || "3000");
+//     })()
+// });
 
 keystone.set("nav", {
     "meetups": ["meetups", "talks", "rsvps"],

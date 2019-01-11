@@ -58,7 +58,7 @@ export = function (req, res) {
                 if (err) {
                     console.log("[api.app.service]  - Error finding existing user via profile id.", err);
                     console.log("------------------------------------------------------------");
-                    return next({ message: "Sorry, there was an error processing your information, please try again." });
+                    return next({ message: "Sorry, there was an error processing your information, please try again.", name: "" });
                 }
                 if (user) {
                     console.log("[api.app.service]  - Found existing user via [" + locals.authUser.type + "] profile id...");
