@@ -19,12 +19,12 @@ body {
 .container-xs,
 .container-sm,
 .container-md {
-	@include container-fixed();
+	@include make-container();
 }
-@media (min-width: $screen-sm-min) {
+@include media-breakpoint-up(sm) {
 	.container-xs { width: 600px; }
-	.container-sm { width: $screen-sm-min - $grid-gutter-width; }
-	.container-md { max-width: $screen-md-min - $grid-gutter-width; }
+	.container-sm { width: map-get($grid-breakpoints, "md") - $grid-gutter-width; }
+	.container-md { max-width: map-get($grid-breakpoints, "lg") - $grid-gutter-width; }
 }
 
 
@@ -71,7 +71,7 @@ body {
 		font-size: 14px;
 	}
 
-	@media (max-width: $screen-sm-max) {
+	@include media-breakpoint-down(md) {
 		.row {
 			div + div {
 				margin-top: 0;
@@ -140,7 +140,7 @@ body {
 .footer-copyright {
 	margin-top: 2em;
 	padding: 2em $page-padding;
-	border-top: 1px solid fade(black, 10%);
+	border-top: 1px solid rgba(black, .10);
 	text-align: center;
 }
 
@@ -154,7 +154,7 @@ $footerHeight: 320px;
 	padding-bottom: $footerHeight;
 	min-height: 100%;
 	background: $body-bg;
-	@media (max-width: $screen-xs-max) {
+	@include media-breakpoint-down(sm) {
 		padding-bottom: 0;
 	}
 }
@@ -165,7 +165,7 @@ $footerHeight: 320px;
 	display: block;
 	width: 100%;
 	height: $footerHeight;
-	@media (max-width: $screen-xs-max) {
+	@include media-breakpoint-down(sm) {
 		position: relative;
 		bottom: auto;
 		height: auto;
@@ -186,14 +186,14 @@ $footerHeight: 320px;
 
 	.link {
 		margin: 0;
-		font-size: $font-size-base + 2;
+		font-size: $font-size-base + .125;
 	}
 
 	.tags-list {
 		margin: 10px 0 0;
 		a {
 			padding: 2px 10px;
-			font-size: $font-size-base - 2;
+			font-size: $font-size-base - .125;
 		}
 	}
 
@@ -248,7 +248,7 @@ $footerHeight: 320px;
 		margin-right: 10px;
 	}
 	.lead {
-		max-width: $screen-sm-min - $grid-gutter-width;
+		max-width: map-get($grid-breakpoints, "sm") - $grid-gutter-width;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -273,7 +273,7 @@ $footerHeight: 320px;
 }
 
 // Add space at the top on tiny screens
-@media (max-width: $screen-sm-max) {
+@include media-breakpoint-down(md) {
 	.row {
 		[class^="col-md"] + [class^="col-md"] {
 			margin-top: $page-padding;
@@ -281,7 +281,7 @@ $footerHeight: 320px;
 	}
 }
 
-@media (max-width: $screen-xs-max) {
+@include media-breakpoint-down(sm) {
 	.row {
 		[class^="col-sm"] + [class^="col-sm"] {
 			margin-top: $page-padding;
@@ -318,7 +318,7 @@ $footerHeight: 320px;
 			margin-right: .625rem;
 
 			img {
-				@include img-responsive();
+				@include img-fluid();
 				border: .1rem solid $brand-primary;
     			padding: .125rem;
 			}
@@ -360,9 +360,9 @@ $footerHeight: 320px;
 	margin-bottom: 20px;
 }
 
-@media (min-width: $screen-sm-min) {
+@include media-breakpoint-up(sm) {
 	.org__logo img {
-		@include img-responsive();
+		@include img-fluid();
 	}
 }
 

@@ -38,7 +38,7 @@ body.sitesection-showbag {
 #showbag {
 	.showbag-header {
 		//-background-color: #F5F5F5;
-		//-#gradient @include vertical(white, #F5F5F5);
+        // @include gradient-y(white, #F5F5F5);
 		padding: 1em 0 3em;
 		.showbag-hero {
 			width: 100%;
@@ -77,10 +77,10 @@ body.sitesection-showbag {
 				float: none;
 				margin: auto;
 				img {
-					@extend .img-responsive;
+					@include img-fluid;
 				}
 			}
-			@media (max-width: $screen-xs-max) {
+			@include media-breakpoint-down(sm) {
 				float: none;
 				display: inline-block;
 				vertical-align: top;

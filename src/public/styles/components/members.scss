@@ -44,7 +44,7 @@ $member-grid-gutter-lg: 30px;
 		left: 0;
 		content: "";
 		pointer-events: none;
-		#gradient @include vertical( fade(white,0), white );
+		 @include gradient-y( rgba(white,0), white );
 	}
 	*/
 }
@@ -177,7 +177,7 @@ $member-grid-gutter-lg: 30px;
 }
 
 // tiny screens
-@media (max-width: $screen-xs-max) {
+@include media-breakpoint-down(sm) {
 	.member__info {
 		padding: .5em;
 	}
@@ -229,7 +229,7 @@ $member-grid-gutter-lg: 30px;
 }
 
 // sm and up screens
-@media (min-width: $screen-sm-min) {
+@include media-breakpoint-up(sm) {
 	.grid-sizer,
 	.member-item {
 		width: 25%;
@@ -247,7 +247,7 @@ $member-grid-gutter-lg: 30px;
 }
 
 // md and up screens
-@media (min-width: $screen-md-min) {
+@include media-breakpoint-up(md) {
 	.grid-sizer,
 	.member-item {
 		width: 20%;
@@ -255,7 +255,7 @@ $member-grid-gutter-lg: 30px;
 }
 
 // large screens
-@media (min-width: $screen-lg-min) {
+@include media-breakpoint-up(lg) {
 	.grid-sizer,
 	.member-item {
 		width: 16.667%;

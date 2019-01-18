@@ -65,7 +65,7 @@ a.media {
 	line-height: 1;
 }
 
-@media (max-width: $screen-xs-max) {
+@include media-breakpoint-down(sm) {
 	.modal-dialog {
 		box-shadow: none;
 		margin: .5em;
@@ -74,7 +74,7 @@ a.media {
 		padding: 0 1em;
 	}
 }
-@media (min-width: $screen-sm-min) {
+@include media-breakpoint-up(sm) {
 
 	// do our own animation
 	.modal {
@@ -86,7 +86,7 @@ a.media {
 				 -o-transition: opacity 200ms ease, -o-transform 200ms ease;
 					transition: opacity 200ms ease, transform 200ms ease;
 		}
-		&.in .modal-dialog {
+		&.show .modal-dialog {
 			@include scale(1,1);
 			opacity: 1;
 		}
@@ -124,7 +124,7 @@ a.media {
 		padding-right: 5px;
 	}
 
-	@media (max-width: $screen-xs-max) {
+	@include media-breakpoint-down(sm) {
 		[class^="col-sm"] + [class^="col-sm"],
 		[class^="col-md"] + [class^="col-md"],
 		[class^="col-lg"] + [class^="col-lg"] {

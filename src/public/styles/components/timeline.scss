@@ -101,7 +101,7 @@ $timeline-alphaomega:   $timeline-node;
 
 	&:hover,
 	&:focus {
-		background-color: fade($white, 50%);
+		background-color: rgba($white, .50);
 		color: inherit;
 		outline: none;
 		text-decoration: none;
@@ -115,7 +115,7 @@ $timeline-alphaomega:   $timeline-node;
 
 // small screens
 
-@media (max-width: $screen-xs-max) {
+@include media-breakpoint-down(sm) {
 
 	.timeline-path {
 		left: 5px;
@@ -142,7 +142,7 @@ $timeline-alphaomega:   $timeline-node;
 
 // large screens
 
-@media (min-width: $screen-sm-min) {
+@include media-breakpoint-up(sm) {
 	.timeline-item--offset {
 		float: right;
 		height: $timeline-offset * 2;

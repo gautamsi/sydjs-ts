@@ -5,7 +5,7 @@
 *
 **/
 
-@media (min-width: $screen-md) {
+@include media-breakpoint-up(md) {
 	.header--fixed {
 		position: fixed;
 		width: 100%;
@@ -21,7 +21,7 @@
 			}
 		}
 		.navbar {
-			background: fade(white, 98%);
+			background: rgba(white, .98);
 			border-color: $gray-light;
 		}
 

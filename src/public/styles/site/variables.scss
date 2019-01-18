@@ -2,10 +2,23 @@
 // So we can keep Bootstrap untouched. Easier to update
 // --------------------------------------------------
 
+// map-get($grid-breakpoints, "lg")
+
 
 // Global values
 // --------------------------------------------------
 
+// color fixes for BS4 from BS3
+//----------------------
+$gray-base:              #000;
+$gray-darker:            lighten($gray-base, 13.5%); // #222
+$gray-dark:              lighten($gray-base, 20%);   // #333
+$gray:                   lighten($gray-base, 33.5%); // #555
+$gray-light:             lighten($gray-base, 60%);   // #999
+$gray-lighter:           lighten($gray-base, 93.5%); // #eee
+
+
+// ----- end color fix
 
 $brand-primary:         #2e99e5;
 $brand-secondary:       #d55500;
@@ -26,7 +39,6 @@ $brand-google:          #3988e5;
 
 // Scaffolding
 // -------------------------
-$white:                 white;
 
 $body-bg:               #f7f7f7;
 $text-color:            #333;
@@ -49,7 +61,7 @@ $font-weight-base:        300;
 
 $font-family-sans-serif:  "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-serif:       "Times New Roman", Times, Georgia, serif;
-$font-size-base:          13px;
+$font-size-base:          .8125rem; // translate to 13px
 $font-size-large:         1.4em;
 $font-size-medium:        1rem; // ~16px (default)
 $font-size-small:         0.8em;
@@ -127,3 +139,119 @@ $component-offset-horizontal: 100px;
 
 $padding-large-vertical:    15px;
 $padding-large-horizontal:  30px;
+
+
+// Fix for BS4 from BS3
+//----------------------
+// $gray:                  #6c757d;
+// $gray-dark:             #343a40;
+// $gray-darker:           #222;
+// $gray-light:            #777;
+// $gray-lighter:          #eee;
+
+// $brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
+// $brand-success:         #5cb85c !default;
+// $brand-info:            #5bc0de !default;
+// $brand-warning:         #f0ad4e !default;
+// $brand-danger:          #d9534f !default;
+
+
+$modal-xl:                          1140px;
+$modal-lg:                          900px;
+$modal-md:                          600px;
+$modal-sm:                          300px;
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-font-weight:                normal !default;
+
+$btn-default-color:              #333 !default;
+$btn-default-bg:                 #fff !default;
+$btn-default-border:             #ccc !default;
+
+$btn-primary-color:              #fff !default;
+$btn-primary-bg:                 $brand-primary !default;
+$btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+
+$btn-success-color:              #fff !default;
+$btn-success-bg:                 $brand-success !default;
+$btn-success-border:             darken($btn-success-bg, 5%) !default;
+
+$btn-info-color:                 #fff !default;
+$btn-info-bg:                    $brand-info !default;
+$btn-info-border:                darken($btn-info-bg, 5%) !default;
+
+$btn-warning-color:              #fff !default;
+$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-border:             darken($btn-warning-bg, 5%) !default;
+
+$btn-danger-color:               #fff !default;
+$btn-danger-bg:                  $brand-danger !default;
+$btn-danger-border:              darken($btn-danger-bg, 5%) !default;
+
+$btn-link-disabled-color:        $gray-light !default;
+
+// Allows for customizing button radius independently from global border radius
+// $btn-border-radius-base:         $border-radius-base !default;
+// $btn-border-radius-large:        $border-radius-large !default;
+// $btn-border-radius-small:        $border-radius-small !default;
+
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+$state-success-text:             #3c763d !default;
+$state-success-bg:               #dff0d8 !default;
+$state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
+
+$state-info-text:                #31708f !default;
+$state-info-bg:                  #d9edf7 !default;
+$state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
+
+$state-warning-text:             #8a6d3b !default;
+$state-warning-bg:               #fcf8e3 !default;
+$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+
+$state-danger-text:              #a94442 !default;
+$state-danger-bg:                #f2dede !default;
+$state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !default;
+
+
+//== Type
+//
+//##
+
+//** Horizontal offset for forms and lists.
+$component-offset-horizontal: 180px !default;
+//** Text muted color
+$text-muted:                  $gray-light !default;
+//** Abbreviations and acronyms border color
+$abbr-border-color:           $gray-light !default;
+//** Headings small color
+$headings-small-color:        $gray-light !default;
+//** Blockquote small color
+$blockquote-small-color:      $gray-light !default;
+//** Blockquote font size
+$blockquote-font-size:        ($font-size-base * 1.25) !default;
+//** Blockquote border color
+$blockquote-border-color:     $gray-lighter !default;
+//** Page header border color
+$page-header-border-color:    $gray-lighter !default;
+//** Width of horizontal description list titles
+$dl-horizontal-offset:        $component-offset-horizontal !default;
+//** Point at which .dl-horizontal becomes horizontal
+// $dl-horizontal-breakpoint:    map-get($grid-breakpoints, "sm") !default;
+//** Horizontal line color.
+$hr-border:                   $gray-lighter !default;
+
+
+
+$line-height-base:            1.5; //from bs4 _variable
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+
+//---------------------- END BS3
+
