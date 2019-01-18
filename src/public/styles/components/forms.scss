@@ -11,7 +11,7 @@
 .checkbox { font-weight: inherit; }
 
 // allow gap between collapsed fields on small devices
-@media (max-width: $screen-xs-max) {
+@include media-breakpoint-down(sm) {
 	.form-group .row > [class^='col-'] {
 		margin-bottom: 10px;
 	}
@@ -26,7 +26,7 @@ textarea {
 // maintain alignment of label text and input/button text
 
 .faux-label {
-	padding-top: $padding-base-vertical;
+	padding-top: $input-padding-y;
 }
 
 

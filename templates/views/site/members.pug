@@ -23,7 +23,7 @@ mixin member(member)
 				if member.bio.html
 					.member__bio!=utils.cropString( utils.htmlToText(member.bio.html), 100, '...', true )
 				if twitterUsername || member.github
-					.member__accounts.hidden-xs
+					.member__accounts.d-xs-none
 						if twitterUsername
 							a(href='https://twitter.com/' + twitterUsername, target='_blank', data-toggle='tooltip', data-title='@' + twitterUsername, data-placement='top', data-container='#members').member__account.member__account--twitter.is-tooltip
 								span.entypo-social.entypo-twitter

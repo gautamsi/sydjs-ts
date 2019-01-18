@@ -39,12 +39,16 @@
 	position: relative;
 }
 .talk__photo {
-	@include img-responsive(inline-block);
+	// @include img-fluid(inline-block);
+    @include img-fluid;
+    display: inline-block;
 	border-radius: 50%;
 	border: 3px solid white;
 }
 .talk__photo__group {
-	@include img-responsive(inline-block);	
+	// @include img-fluid(inline-block);
+    @include img-fluid;
+    display: inline-block;
 }
 .talk__photo--mini {
 	position: absolute;

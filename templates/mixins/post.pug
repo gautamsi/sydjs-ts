@@ -2,7 +2,7 @@ mixin post(post)
 	.col-sm-4
 		article(role="article", itemscope itemtype="http://schema.org/BlogPosting").post-card
 			if post.image.exists
-				a(href='/blog/post/' + post.slug).post-image: img(src=post._.image.thumbnail(600,320), alt=post.title).img-responsive
+				a(href='/blog/post/' + post.slug).post-image: img(src=post._.image.thumbnail(600,320), alt=post.title).img-fluid
 			.post-summary
 				.post-byline
 					.post-author: a(href='/blog/post/' + post.slug)=post.author.name.full
@@ -19,7 +19,7 @@ mixin post(post)
 		.blog-post__image
 			a(href='/blog/post/' + post.slug)
 				if post.image.exists
-					img(src=post._.image.fit(770,510), alt=post.title).img-responsive
+					img(src=post._.image.fit(770,510), alt=post.title).img-fluid
 		.blog-post__content(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 			h3(itemprop='name').blog-post__heading: a(href='/blog/post/' + post.slug, itemprop='url')= post.title
 			if post.author

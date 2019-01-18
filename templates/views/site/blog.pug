@@ -13,7 +13,7 @@ block intro
 block content
 	.page-content: .container
 		.row
-			div(class= data.categories.length || !data.posts.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
+			div(class= data.categories.length || !data.posts.length ? 'col-md-10' : 'col-md-10 offset-md-1')
 				if filters.category && !data.category
 					h3 Invalid Category.
 				else

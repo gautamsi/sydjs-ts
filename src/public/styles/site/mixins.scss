@@ -11,6 +11,36 @@
 */
 
 
+
+//---------  From Old bootstrap ------
+
+// Opacity
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    // IE8 filter
+    $opacity-ie: ($opacity * 100);
+    filter: alpha(opacity=$opacity-ie);
+  }
+  
+
+  // WebKit-style focus
+
+@mixin tab-focus() {
+    // Default
+    outline: thin dotted;
+    // WebKit
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+  
+  @mixin square($size) {
+    @include size($size, $size);
+  }  
+
+//----------
+
+
 @mixin translateX($value)
 {
   -webkit-transform: translateX($value);
@@ -142,19 +172,13 @@
 
 @mixin button-base($color, $background, $border)
 {
-	#gradient {
-        // @include vertical( lighten($background,2%), darken($background,2%) );
-        // todo: fix above
-    }
+    @include gradient-y( lighten($background,2%), darken($background,2%) );
 	color: $color;
 	background-color: $background;
 	border-color: lighten($border, 5%) $border darken($border, 5%);
 
 	&:hover, &:focus {
-		#gradient { 
-            // @include vertical( lighten($background,5%), darken($background,0%) );
-            // todo: fix above
-    }
+        @include gradient-y( lighten($background,5%), darken($background,0%) );
 		color: $color;
 		background-color: lighten($background, 5%);
 		border-color: lighten($border, 10%) lighten($border, 5%) lighten($border, 0%);
@@ -199,7 +223,7 @@
 
 @mixin text-hero($font-factor)
 {
-	font-size: calc($font-size-medium * $font-factor) !important;
+	font-size: calc(#{$font-size-medium} * #{$font-factor}) !important;
 }
 
 

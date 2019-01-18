@@ -7,11 +7,11 @@
 	* initial [default "join"] - accepts "signin" | "join" | "password"
 	
 mixin form-join(args)
-	.auth-box.modal-pane-join(class=args.modal && args.initial != 'join' ? 'hidden' : null)
+	.modal-content.auth-box.modal-pane-join(class=args.modal && args.initial != 'join' ? 'd-none' : null)
 		if args.modal
 			.modal-header
-				button(type="button", class="close", data-dismiss="modal", aria-hidden="true") &times;
 				h4.modal-title Join SydJS
+				button(type="button", class="close", data-dismiss="modal", aria-hidden="true") &times;
 		div(class=args.modal ? 'modal-body' : null)
 			include ../../includes/social-signin
 			p.auth-form-divider: span.auth-form-divider-text or

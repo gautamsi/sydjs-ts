@@ -8,7 +8,7 @@
 
 	.input {
 		border-radius: $input-border-radius;
-		padding: $padding-base-vertical $padding-base-horizontal;
+		padding: $input-padding-y $input-padding-x;
 		width: 100%;
 	}
 	.input-faded {
@@ -32,9 +32,9 @@
 		border-width: 2px;
 		font-size: 30px;
 		font-weight: 500;
-		padding: $padding-base-vertical $padding-base-horizontal;
+		padding: $input-padding-y $input-padding-x;
 
-		@media (min-width: $screen-sm-min) {
+		@include media-breakpoint-up(sm) {
 			font-size: 48px;
 		}
 	}
@@ -44,10 +44,10 @@
 		position: relative;
 	}
 	.input-label {
-		@include text-overflow();
+		@include text-truncate();
 		color: mix($body-bg, $text-color, 70%);
 		font-size: $font-size-small;
-		padding: $padding-base-vertical + 3 $padding-base-horizontal;
+		padding: $input-padding-y + 3 $input-padding-x;
 		position: absolute;
 		text-transform: uppercase;
 		width: 100px;
@@ -75,7 +75,7 @@
 		padding-top: 10px;
 		padding-bottom: 10px;
 		h1 {
-			font-size: $font-size-base + 16;
+			font-size: $font-size-base + 1;
 		}
 		label { margin-bottom: 10px; }
 	}

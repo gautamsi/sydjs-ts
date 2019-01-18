@@ -30,7 +30,7 @@ $post-image-width: 170px;
 	}
 }
 
-@media (min-width: $screen-sm-min) {
+@include media-breakpoint-up(sm) {
 	.blog-post__image {
 		float: left;
 		width: $post-image-width;
@@ -85,7 +85,7 @@ $post-image-width: 170px;
 		}
 	}
 
-	@media (max-width: $screen-xs-max) {
+	@include media-breakpoint-down(sm) {
 		margin-top: 0;
 	}
 }
@@ -104,7 +104,7 @@ $post-image-width: 170px;
 	@include clearfix();
 	position: relative;
 	
-	@media (min-width: $screen-sm-min) {
+	@include media-breakpoint-up(sm) {
 		&.right {
 			float: right;
 		

@@ -7,15 +7,11 @@
 	* initial [default "join"] - accepts "signin" | "join" | "password"
 	
 mixin form-reset(args)
-	.auth-box.modal-pane-signin(class=args.modal && args.initial != 'signin' ? 'hidden' : null)
+	.modal-content.auth-box.modal-pane-signin(class=args.modal && args.initial != 'signin' ? 'd-none' : null)
 		if args.modal
 			.modal-header
-				button(
-					type="button"
-					class="close"
-					data-dismiss="modal"
-					aria-hidden="true") &times;
 				h4.modal-title Reset password
+				button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
 		div(class=args.modal ? 'modal-body' : null)
 			form.auth-form.form-signin(
 				method='post'

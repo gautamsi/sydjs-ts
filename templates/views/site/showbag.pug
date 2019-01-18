@@ -4,7 +4,7 @@ extends ../../layouts/default
 block content
 	article#showbag
 		header.showbag-header
-			.container: .row: .col-sm-10.col-sm-offset-1
+			.container: .row: .col-sm-10.offset-sm-1
 				h1.text-center.mb-0 The SydJS showbag
 				p.lead.text-center.mt-1 Running a meetup? Learning Node or Keystone? Thinking about hybrid apps and Cordova? Here's a bag of freebies to get you well and truly on your way.
 			.showbag-hero
@@ -27,7 +27,7 @@ block content
 				hr
 				section
 					h4.text-center Made with...
-					.row: .col-sm-8.col-sm-offset-2
+					.row: .col-sm-8.offset-sm-2
 						.showbag-createdwith
 							img(src='/images/showbag/cordova.jpg', alt='Cordova', title='Cordova')
 							img(src='/images/showbag/backbone.jpg', alt='Backbone', title='Backbone')
@@ -47,7 +47,7 @@ block content
 									.member-section.member__info
 										h5.tetx-center.member__title(class=(member.bio.html ? null : 'member__title-only')): a(href=member.url)= member.name.full
 										if member.bio.html
-											.member__bio.hidden-xs!=utils.cropString( utils.htmlToText(member.bio.html), 100, '...', true )
+											.member__bio.d-xs-none!=utils.cropString( utils.htmlToText(member.bio.html), 100, '...', true )
 
 
 block js

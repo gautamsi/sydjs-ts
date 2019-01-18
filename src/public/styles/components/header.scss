@@ -28,7 +28,7 @@
 // Navbar on other page
 #header.header--page {
 	.navbar {
-		background-color: fade($navbar-default-bg, 98%);
+		background-color: rgba($navbar-default-bg, .98);
 	}
 }
  */
@@ -85,7 +85,7 @@ nav {
 		padding-right: 15px;
 		padding-left: 15px;
 		outline: none;
-		color: fade(white, 60%);
+		color: rgba(white, .60);
 		text-transform: uppercase;
 		font-weight: 300;
 		font-size: $font-size-base * 1.1;
@@ -96,7 +96,7 @@ nav {
 		}
 		&:active,
 		&:focus {
-			color: fade(white, 40%);
+			color: rgba(white, .40);
 			text-decoration: none;
 		}
 	}
@@ -121,7 +121,7 @@ nav {
 }
 
 // Mobile styles
-@media (max-width: $screen-sm-max) {
+@include media-breakpoint-down(md) {
 	.site-branding {
 		width: 100px;
 		> svg {
@@ -159,7 +159,7 @@ nav {
 			width: 24px;
 			height: 2px;
 			border-radius: 2px;
-			background: fade( white, 50% );
+			background: rgba( white, .50 );
 
 			&:before, &:after {
 				@include transition(all 0.2s ease);
@@ -169,7 +169,7 @@ nav {
 				width: 24px;
 				height: 2px;
 				border-radius: 2px;
-				background: fade( white, 50% );
+				background: rgba( white, .50 );
 				content: '';
 			}
 
@@ -196,7 +196,7 @@ nav {
 		left: 0;
 		visibility: hidden;
 		overflow: hidden;
-		background: fade( white, 99% );
+		background: rgba( white, .99 );
 
 		nav {
 			@include perspective(1200px);
@@ -220,7 +220,7 @@ nav {
 				> li > a {
 					color: $gray-dark;
 					font-size: $font-size-base * 2;
-					-webkit-tap-highlight-color: fade( black, 30% );
+					-webkit-tap-highlight-color: rgba( black, .30 );
 				}
 
 				> li.active a {

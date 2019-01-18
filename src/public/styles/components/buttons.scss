@@ -9,7 +9,7 @@
 // ------------------------------
 
 .btn {
-	@include button-size($padding-base-vertical, $padding-base-horizontal, 1em, 1.6, $border-radius-base);
+	@include button-size($input-padding-y, $input-padding-x, 1em, 1.6, $border-radius-base);
 	@include user-select(none);
 	background-image: none; // Reset unusual Firefox-on-Android default style
 	border: 1px solid transparent; // For input.btn
@@ -84,9 +84,49 @@
 	@include text-hero(.75);
 }
 
-@media (min-width: $screen-xs-min) {
+@include media-breakpoint-up(sm) {
 	.btn-decline {
 		@include text-hero(1);
+	}
+}
+
+
+// Link buttons
+// -------------------------
+
+// Make a button look and behave like a link
+.btn-link {
+	border-radius: 0;
+	color: $link-color;
+	cursor: pointer;
+	font-weight: normal;
+
+	&,
+	&:active,
+	&[disabled],
+	fieldset[disabled] & {
+		background-color: transparent;
+		@include box-shadow(none);
+	}
+	&,
+	&:hover,
+	&:focus,
+	&:active {
+		border-color: transparent;
+	}
+	&:hover,
+	&:focus {
+		background-color: transparent;
+		color: $link-hover-color;
+		text-decoration: underline;
+	}
+	&[disabled],
+	fieldset[disabled] & {
+		&:hover,
+		&:focus {
+			color: $btn-link-disabled-color;
+			text-decoration: none;
+		}
 	}
 }
 
@@ -136,59 +176,20 @@
 	}
 }
 
-// Link buttons
-// -------------------------
-
-// Make a button look and behave like a link
-.btn-link {
-	border-radius: 0;
-	color: $link-color;
-	cursor: pointer;
-	font-weight: normal;
-
-	&,
-	&:active,
-	&[disabled],
-	fieldset[disabled] & {
-		background-color: transparent;
-		@include box-shadow(none);
-	}
-	&,
-	&:hover,
-	&:focus,
-	&:active {
-		border-color: transparent;
-	}
-	&:hover,
-	&:focus {
-		background-color: transparent;
-		color: $link-hover-color;
-		text-decoration: underline;
-	}
-	&[disabled],
-	fieldset[disabled] & {
-		&:hover,
-		&:focus {
-			color: $btn-link-disabled-color;
-			text-decoration: none;
-		}
-	}
-}
-
-
 // Button Sizes
 // ------------------------------
 
 .btn-lg {
 	// line-height: ensure even-numbered height of button next to large input
-	@include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+	@include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-large, $line-height-lg, $border-radius-lg);
 }
 .btn-sm {
 	// line-height: ensure proper height of button next to small input
-	@include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+	@include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-small, $line-height-sm, $border-radius-sm);
 }
 .btn-xs {
-	@include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+    // no btn-padding-y-xs, btn-padding-x-xs
+	@include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-small, $line-height-sm, $border-radius-sm);
 }
 
 

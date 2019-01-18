@@ -69,8 +69,7 @@
 
 // Social catchall
 .entypo-social {
-    // @include entypo();
-    // todo: fix above
+    @extend .entypo;
 	font-family: 'EntypoSocial';
 }
 

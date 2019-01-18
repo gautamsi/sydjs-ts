@@ -1,11 +1,11 @@
 mixin link(link)
 	article(role="article", itemscope itemtype="http://schema.org/BlogPosting").links-list
 		.row
-			.col-xs-1
+			.col-1
 				h3
 					span.entypo.entypo-link.text-muted
-			.col-xs-11
-				h4(itemprop='name').mt-5
+			.col-11
+				h4(itemprop='name')
 					a(href='/links/link/' + link.slug, itemprop='url').text-dark
 						strong= link.label
 				if link.author

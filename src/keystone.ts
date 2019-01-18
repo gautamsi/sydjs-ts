@@ -24,9 +24,8 @@ keystone.init(<any>{
     "back": "/me",
 
     "favicon": "public/favicon.ico",
-    "less": "public",
-    "scss": "public",
-    "static": "public",
+    "sass": "public",
+    "static": ["public", "../dist/public"],
 
     "views": "../templates/views",
     "view engine": "pug",

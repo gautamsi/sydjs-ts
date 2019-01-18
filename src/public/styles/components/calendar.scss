@@ -51,7 +51,7 @@ $calendar-width:    100px;
 	margin-bottom: 20px;
 }
 
-@media (min-width: $screen-md-min) {
+@include media-breakpoint-up(md) {
 	.meetup-calendar {
 		@include translate(-100%,0);
 		left: -$page-padding;
