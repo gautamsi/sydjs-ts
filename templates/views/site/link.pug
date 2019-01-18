@@ -2,12 +2,12 @@ extends ../../layouts/default
 
 block intro
 	.back-bar
-		.container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+		.container: .row: .col-sm-10.offset-sm-1.col-md-8.offset-md-2
 			.xs-right: a(href='/links').text-muted &larr; Back to Links
 
 
 block content
-	.container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+	.container: .row: .col-sm-10.offset-sm-1.col-md-8.offset-md-2
 		article.full-post
 			if !link
 				h2 Invalid Link.
@@ -49,11 +49,11 @@ block content
 										!=comment.content.html
 				if user
 					//- Reply form
-					form(method='post').comment-form.mt-5
+					form(method='post').comment-form
 						input(type='hidden', name='action', value='create-comment')
 						.media
 							.pull-left
-								img(src=user.photo.exists ? user._.photo.thumbnail(60,60) : '/images/placeholders/user-60x60.jpg', alt=user.name.full, width=40, height=40).img-responsive.img-circle
+								img(src=user.photo.exists ? user._.photo.thumbnail(60,60) : '/images/placeholders/user-60x60.jpg', alt=user.name.full, width=40, height=40).img-fluid.img-circle
 							.media-body
 								textarea(placeholder='Add your comment...', name='content').form-control
 								.form-inline.mv-5

@@ -1,12 +1,14 @@
+declare var Cookies;
+
 $(function () {
 
     $(".dismiss-alert").click(function () {
         $("#app-alert").hide();
-        $.cookie("dismissAppBanner", true);
+        Cookies.set("dismissAppBanner", true);
     });
 
-    if (!$.cookie("dismissAppBanner")) {
-        $("#app-alert").removeClass("hidden-md hidden-lg");
+    if (!Cookies.get("dismissAppBanner")) {
+        $("#app-alert").removeClass("d-md-none d-lg-none");
     }
 
 
@@ -83,8 +85,8 @@ $(function () {
 
         $authmodal.modal("show");
 
-        authmodalPanes.addClass("hidden");
-        initialPane.removeClass("hidden");
+        authmodalPanes.addClass("d-none");
+        initialPane.removeClass("d-none");
 
         // only focus the first field on large devices where showing
         // the keyboard isn't a jarring experience
@@ -104,8 +106,8 @@ $(function () {
 
         const switchTo = $authmodal.find(".modal-pane-" + $(this).data("modal-pane"));
 
-        authmodalPanes.addClass("hidden");
-        switchTo.removeClass("hidden");
+        authmodalPanes.addClass("d-none");
+        switchTo.removeClass("d-none");
 
 
         // only focus the first field on large devices where showing

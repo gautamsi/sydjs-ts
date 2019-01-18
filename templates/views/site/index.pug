@@ -29,7 +29,7 @@ block intro
 					#react-hero-button
 			//- Details
 			section.hero-details: .container
-				.row: .col-sm-10.col-sm-offset-1
+				.row: .col-sm-10.offset-sm-1
 					.row
 						//- Description
 						.col-md-5
@@ -37,14 +37,14 @@ block intro
 							.description!= meetup.description
 
 						//- Talks
-						.col-md-6.col-md-offset-1
+						.col-md-6.offset-md-1
 							if meetup.talks.length
 								//- h3.mb-1 The talks
 								.meetup-talks
 									ul.list-unstyled.talks-list
 										each talk in meetup.talks
 											li.talk.row
-												.col-xs-3
+												.col-3
 													.talk__speakers
 														if talk.who.length
 															each speaker, i in talk.who
@@ -58,7 +58,7 @@ block intro
 														.talkers
 															for photo in talk.who
 																img(src='http://fillmurray.com/100/100').img-circle
-												.col-xs-9
+												.col-9
 													.talk-summary
 														h5.title= talk.name
 														p.subtitle.mb-1 by 
@@ -81,10 +81,10 @@ block content
 		//- About
 		article.section.section--featured.home-about: .container
 			h2 In Sydney and into JavaScript? You need to join SydJS!
-			.row: .col-sm-8.col-sm-offset-2
+			.row: .col-sm-10.offset-sm-1
 				p.lead Every 3rd Wednesday of the month you'll find us talking about what we're doing and what's happening around us in the world of JavaScript.
 			if !user
-				.row: .col-sm-4.col-sm-offset-4
+				.row: .col-sm-4.offset-sm-4
 					a(href='/join', data-from=page.path).js-auth-trigger.btn.btn-lg.btn-block.btn-primary.mv-1
 						span.text-caps Join SydJS now
 			p.mt-1

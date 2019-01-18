@@ -5,7 +5,7 @@ mixin meetup(meetup)
 	- var today = new Date();
 
 	.tile.ph-1.pv-1
-		.meetup-calendar.calendar.hidden-xs.hidden-sm(class=meetup.state == 'past' ? 'calendar--past' : null)
+		.meetup-calendar.calendar.d-xs-none.d-md-block(class=meetup.state == 'past' ? 'calendar--past' : null)
 			.calendar__header=meetup._.startDate.format('MMM')
 			.calendar__body
 				.calendar__date=meetup._.startDate.format('DD')

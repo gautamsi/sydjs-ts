@@ -15,20 +15,20 @@ block content
 						th Name
 						th Have
 						th Want
-						th.hidden-xs Free
-						th.hidden-xs Paid
-						th.hidden-xs Swap
+						th.d-xs-none Free
+						th.d-xs-none Paid
+						th.d-xs-none Swap
 				tbody
 					each member in members
 						tr
 							td
 								a(href=member.url).media
-									.pull-left: img(src=member.photo.exists ? member._.photo.thumbnail(80,80) : member.avatarUrl || '/images/avatar.png', width=40, height=40, alt=member.name.ful).img-responsive.img-circle
+									.pull-left: img(src=member.photo.exists ? member._.photo.thumbnail(80,80) : member.avatarUrl || '/images/avatar.png', width=40, height=40, alt=member.name.ful).img-fluid.img-circle
 									.media-body= member.name.full
 							td= member.mentoring.have
 							td= member.mentoring.want
-							td.hidden-xs!= member.mentoring.free ? '<span class="entypo entypo-check"></span>' : null
-							td.hidden-xs!= member.mentoring.paid ? '<span class="entypo entypo-check"></span>' : null
-							td.hidden-xs!= member.mentoring.swap ? '<span class="entypo entypo-check"></span>' : null
+							td.d-xs-none!= member.mentoring.free ? '<span class="entypo entypo-check"></span>' : null
+							td.d-xs-none!= member.mentoring.paid ? '<span class="entypo entypo-check"></span>' : null
+							td.d-xs-none!= member.mentoring.swap ? '<span class="entypo entypo-check"></span>' : null
 		else
 			h3.text-muted There are no mentors yet.
